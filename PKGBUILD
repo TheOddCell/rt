@@ -1,5 +1,5 @@
 pkgname=r00t
-pkgver=1.0.0
+pkgver=2.0.0
 pkgrel=1
 pkgdesc="rt - root, das it"
 arch=('x86_64')
@@ -12,7 +12,7 @@ sha256sums=('SKIP')
 
 build() {
   cd "$srcdir"
-  gcc -O2 -pipe -Wall -Wextra -std=gnu11 -o rt rt.c
+  gcc -O2 -Wall -std=gnu11 -o rt rt.c -lpam -lpam_misc
 }
 
 package() {
@@ -20,4 +20,3 @@ package() {
     chmod 4750 "$pkgdir/usr/bin/rt"
     chown root:wheel "$pkgdir/usr/bin/rt"
 }
-
